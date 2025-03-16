@@ -1,13 +1,17 @@
-package com.kodilla.testing.collection;
 
-import org.junit.jupiter.api.*;
+import com.kodilla.testing.collection.OddNumbersExterminator;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 @DisplayName("Testy klasy OddNumbersExterminator")
-public class CollectionTestSuite {
+class CollectionTestSuite {
     private OddNumbersExterminator exterminator;
 
     @BeforeEach
@@ -24,27 +28,27 @@ public class CollectionTestSuite {
     @Test
     @DisplayName("Test pustej listy")
     void testOddNumbersExterminatorEmptyList() {
-        // Given
+
         List<Integer> emptyList = Collections.emptyList();
 
-        // When
+
         List<Integer> result = exterminator.exterminate(emptyList);
 
-        // Then
-        Assertions.assertTrue(result.isEmpty(), "Lista wynikowa powinna być pusta");
+
+        assertTrue(result.isEmpty(), "Lista wynikowa powinna być pusta");
     }
 
     @Test
     @DisplayName("Test listy z liczbami parzystymi i nieparzystymi")
     void testOddNumbersExterminatorNormalList() {
-        // Given
+
         List<Integer> inputList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
         List<Integer> expectedList = Arrays.asList(2, 4, 6, 8);
 
-        // When
+
         List<Integer> result = exterminator.exterminate(inputList);
 
-        // Then
-        Assertions.assertEquals(expectedList, result, "Lista wynikowa powinna zawierać tylko liczby parzyste");
+
+        assertEquals(expectedList, result, "Lista wynikowa powinna zawierać tylko liczby parzyste");
     }
 }
